@@ -3587,6 +3587,7 @@ function App() {
             <a href="#gallery">{t.navCases}</a>
             <a href="#templates">{t.navTemplates}</a>
             <a href="#agent-skill">{t.navSkill}</a>
+            <a href="https://xidaoapi.com" target="_blank" rel="noreferrer">XidaoAPI</a>
             <button type="button" className="navApiKeyButton" onClick={() => setAccountOpen(true)}>
               <Key size={14} />
               {language === 'zh' ? '填Key' : 'API Key'}
