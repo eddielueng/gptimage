@@ -116,6 +116,7 @@ button {
 }
 
 .topbar nav a,
+.topbar nav .navApiKeyButton,
 .communityNavItem > button {
   display: inline-flex;
   align-items: center;
@@ -129,13 +130,26 @@ button {
   font: inherit;
   font-weight: 700;
   letter-spacing: 0;
+  cursor: pointer;
 }
 
 .topbar nav a:hover,
+.topbar nav .navApiKeyButton:hover,
 .communityNavItem > button:hover,
 .communityNavItem:focus-within > button {
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
+}
+
+.navApiKeyButton {
+  border: 1px solid rgba(103, 232, 249, 0.3) !important;
+  border-radius: 7px !important;
+  color: #9eeeff !important;
+}
+
+.navApiKeyButton:hover {
+  background: rgba(103, 232, 249, 0.12) !important;
+  border-color: rgba(103, 232, 249, 0.5) !important;
 }
 
 .communityNavItem {
@@ -2100,6 +2114,20 @@ button {
   color: #6b7a8e;
   font-style: normal;
   line-height: 1.5;
+}
+
+.apiKeyRegisterHint {
+  margin-top: 2px;
+}
+
+.apiKeyRegisterHint a {
+  color: #7eb8d4;
+  text-decoration: none;
+}
+
+.apiKeyRegisterHint a:hover {
+  color: #9eeeff;
+  text-decoration: underline;
 }
 
 .buyCreditsLink {

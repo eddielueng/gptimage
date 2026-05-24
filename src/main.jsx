@@ -1665,6 +1665,13 @@ function AccountPanel({
                   onChange={(event) => setUserApiKey(event.target.value)}
                 />
                 <em>{t.apiKeyHint}</em>
+                <em className="apiKeyRegisterHint">
+                  {language === 'zh' ? (
+                    <>请先去 <a href="https://xidaoapi.com" target="_blank" rel="noreferrer">xidaoapi.com</a> 注册账户获取 API Key 后填入即可使用</>
+                  ) : (
+                    <>Register at <a href="https://xidaoapi.com" target="_blank" rel="noreferrer">xidaoapi.com</a> to get your API Key, then fill it in to start generating</>
+                  )}
+                </em>
               </label>
               <div className="apiKeyActions">
                 <button type="button" className="portalButton" onClick={handleSaveApiKey} disabled={apiKeyStatus === 'loading'}>
@@ -2628,9 +2635,9 @@ function SkillSection({ language, repoUrl }) {
   const t = copy[language];
   const [commandCopied, setCommandCopied] = useState(false);
   const installCommand =
-    'npx skills add freestylefly/awesome-gpt-image-2 --skill gpt-image-2-style-library --agent claude-code codex --global --yes --copy';
+    'npx skills add eddielueng/gptimage --skill gpt-image-2-style-library --agent claude-code codex --global --yes --copy';
   const skillSourceUrl = `${repoUrl}/tree/main/agents/skills/gpt-image-2-style-library`;
-  const npmUrl = 'https://www.npmjs.com/package/gpt-image-2-style-library';
+  const npmUrl = 'https://www.npmjs.com/package/xidaoapi-gpt-image-style-library';
 
   async function handleCopyCommand() {
     await copyToClipboard(installCommand);
@@ -3580,10 +3587,10 @@ function App() {
             <a href="#gallery">{t.navCases}</a>
             <a href="#templates">{t.navTemplates}</a>
             <a href="#agent-skill">{t.navSkill}</a>
-            <CommunityNavItem language={language} />
-            <a href={repoUrl} target="_blank" rel="noreferrer">
-              GitHub
-            </a>
+            <button type="button" className="navApiKeyButton" onClick={() => setAccountOpen(true)}>
+              <Key size={14} />
+              {language === 'zh' ? '填Key' : 'API Key'}
+            </button>
           </nav>
           <LanguageSwitch language={language} setLanguage={setLanguage} />
           <UserMenu
